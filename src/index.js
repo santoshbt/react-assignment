@@ -12,6 +12,7 @@ import rootReducer from './reducers/root_reducer';
 import Username from './components/username';
 import Users from './components/users';
 import Posts from './components/posts';
+import Header from './components/header';
 
 // import registerServiceWorker from './registerServiceWorker';
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -20,6 +21,8 @@ ReactDOM.render(
  <Provider store={createStoreWithMiddleware(rootReducer)}>
   <BrowserRouter>
     <div>
+      <Header />
+
       <Switch>
         <Route path="/users" component={Users} />
         <Route path="/posts" component={Posts} />
