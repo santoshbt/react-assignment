@@ -47,8 +47,6 @@ export function fetchUser(id){
 
 export function fetchUserPosts(user_id) {
     const request = axios.get(`${ROOT_URL}/posts?userId=${user_id}`);
-    console.log(request);
-    console.log("2222222222");
     
     return {
       type: FETCH_USER_POSTS,

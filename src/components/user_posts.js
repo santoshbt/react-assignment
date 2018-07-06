@@ -23,10 +23,18 @@ class UserPosts extends Component {
   }
 
   render() {
+    const { posts } = this.props;
+    if(!posts) {
+      return <div>Loading ...</div>
+    }
+
     return(
+      <div>
+        <h5>Posts</h5>
         <ul className="list-group">
           {this.renderPosts()}
         </ul>
+      </div>
     )
   }
 }

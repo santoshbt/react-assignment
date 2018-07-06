@@ -24,7 +24,6 @@ class Users extends Component {
 
   render() {
     const { users } = this.props;
-
     if(!users) {
       return <div>Loading ...</div>
     }

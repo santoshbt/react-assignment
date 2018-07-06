@@ -23,7 +23,10 @@ class UserShow extends Component {
 
     return(
       <div>
-        <h3>{user.name}</h3>
+        <h3>Name: {user.name}</h3>
+        <h4>Email: {user.email}</h4>
+        <h4>Address: {user.address.street} </h4>
+        <h4>City: {user.address.city} </h4>
         <UserPosts user_id={id} />
       </div>
     )
