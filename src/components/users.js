@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { fetchUsers } from '../actions';
 
@@ -12,7 +13,9 @@ class Users extends Component {
     return _.map(this.props.users, user => {
       return(
         <li className="list-group-item" key={user.id}>
-          {user.name}
+          <Link to={`/users/${user.id}`}>
+            {user.name}
+          </Link>
         </li>
       )
     });
@@ -20,6 +23,12 @@ class Users extends Component {
   }
 
   render() {
+    const { users } = this.props;
+
+    if(!users) {
+      return <div>Loading ...</div>
+    }
+
     return(
       <div>
       <h3> Users </h3>
