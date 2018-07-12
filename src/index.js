@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import promise from 'redux-promise';
+// import promise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
 
 import './index.css';
 import rootReducer from './reducers/root_reducer';
@@ -14,7 +15,7 @@ import PostShow from './components/post_show';
 import UserShow from './components/user_show';
 import Header from './components/header';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 ReactDOM.render(
  <Provider store={createStoreWithMiddleware(rootReducer)}>

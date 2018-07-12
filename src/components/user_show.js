@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import UserPosts from './user_posts';
 
 class UserShow extends Component {
-  componentDidMount(){
+  componentWillMount(){
     if(!this.props.user){
       const { id } =  this.props.match.params;
       this.props.fetchUser(id);
@@ -17,8 +17,9 @@ class UserShow extends Component {
   render() {
     const { user } = this.props;
     const { id } =  this.props.match.params;
+    console.log("User === ",user);
     if(!user) {
-      return <div>Loading ...</div>
+      return <div>Loading ...</div>;
     }
 
     return(
@@ -34,8 +35,7 @@ class UserShow extends Component {
 }
 
 function mapStateToProps({ users }, ownProps){
-  return { user: users[ownProps.match.params.id]}
+  return { user: users[ownProps.match.params.id]}    // ownProps === this.props
 }
-
 
 export default connect(mapStateToProps, {fetchUser})(UserShow);

@@ -8,3 +8,8 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+
+// const rootReducer = combineReducers({
+//   users: (state = [], action) => action.payload || state
+// });
